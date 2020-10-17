@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trybe Conference</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <!-- CABEÇALHO -->
+  <header class="speaker-form-header">
+    <h1>Trybe Conference</h1>
+    <p><em>A melhor conferência da America Latina. Não, do mundo!</em></p>
+  </header>
+
+  <!-- FORMULARIO -->
+  <form action="" method="get" class="speaker-form">
+    
+    <div class="form-row">
+      <!-- NOME -->
+      <div class="line-content">
+        <label for="full-name">Nome</label>
+        <input name="name" type="text" id="full-name">
+      </div>
+
+      <!-- TIPO DA PALESTRA -->
+      <div class="line-content">
+        <fieldset class="legacy-form-row">
+          <legend>Tipo da Palestra</legend>
+
+          <input type="radio" 
+            name="talk-type" 
+            value="main-stage" 
+            id="main-stage">
+          <label for="main-stage">Palco Principal</label>
+          <br />
+          <input type="radio" 
+            name="talk-type" 
+            value="workshop" 
+            id="workshop">
+          <label for="workshop">Workshop</label>
+        </fieldset>
+      </div>
+
+      <!-- TAMANHO DA CAMISA -->
+      <div class="line-content">
+        <label for="t-shirt">Tamanho da Camisa</label>
+        <select name="t-shirt" id="t-shirt">
+          <option value="gg">GG</option>
+          <option value="g">G</option>
+          <option value="m">M</option>
+          <option value="p">P</option>
+        </select>
+      </div>
+
+      <!-- DESCRICAO DA PALESTRA -->
+      <div class="line-content">
+        <label for="">Descrição da Palestra</label>
+        <textarea name="abstract" id="abstract"></textarea>
+        <p><em>Descreva sua palestra em 500 palavras ou menos</em></p>
+      </div>
+
+      <!-- CONFIRMACAO DE DATA -->
+      <div class="line-content">
+        <input type="checkbox" 
+          name="available" 
+          id="checkbox-availability">
+        <span>Estou disponível para palestrar nessa data</span>
+      </div>
+
+      <!-- BOTAO -->
+      <div class="line-content">
+        <button type="submit">Enviar</button>
+      </div>
+    </div>
+  </form>
+
+</body>
+</html>

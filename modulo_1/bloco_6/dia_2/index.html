@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trybe Conference</title>
+  <link rel="stylesheet" href="css/bulma.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- CABEÇALHO -->
+  <section class="section">
+    <header>
+      <h1 class="title">Trybe Conference</h1>
+      <p class="subtitle">
+        <em>A melhor conferência da America Latina. Não, do mundo!</em>
+      </p>
+    </header>
+  </section>
+
+  <hr />
+
+  <!-- FORMULARIO -->
+  <section class="section">
+    <form action="" method="get" class="speaker-form">
+
+      <!-- div class field -->
+      <!-- qualquer coisa -->
+      <!-- control -->
+      <!-- form control, que pode ser input, button, textarea -->
+
+      <!-- NOME -->
+      <div class="field">
+        <label class="label" for="full-name">Nome</label>
+        <div class="control">
+          <input class="input" name="name" type="text" id="full-name">
+        </div>
+      </div>
+
+      <!-- TIPO DA PALESTRA -->
+      <div class="field">
+        <label class="label">Tipo da Palestra</label>
+        <div class="control">
+          
+          <label class="radio" for="main-stage">
+            <input type="radio" name="talk-type" value="main-stage" id="main-stage">
+            Palco Principal
+          </label>          
+          <br />
+          <label class="radio" for="workshop">
+            <input type="radio" name="talk-type" value="workshop" id="workshop">
+            Workshop
+          </label>
+        </div>
+      </div>
+
+      <!-- TAMANHO DA CAMISA -->
+      <div class="field">
+        <label class="label" for="t-shirt">Tamanho da Camisa</label>
+        <div class="control">
+          <div class="select">
+            <select name="t-shirt" id="t-shirt">
+              <option value="gg">GG</option>
+              <option value="g">G</option>
+              <option value="m">M</option>
+              <option value="p">P</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      
+
+      <!-- DESCRICAO DA PALESTRA -->
+      <div class="field">
+        <label class="label" for="abstract">Descrição da Palestra</label>
+        <div class="control">
+          <textarea class="textarea" name="abstract" id="abstract"></textarea>
+        </div>
+        <p><em>Descreva sua palestra em 500 palavras ou menos</em></p>
+      </div>
+      
+      <!-- CONFIRMACAO DE DATA -->
+      <div class="field">
+        <div class="control">
+        <label class="checkbox">
+          <input type="checkbox" name="available" id="checkbox-availability">
+          Estou disponível para palestrar nessa data
+        </label>
+        </div>
+      </div>
+
+      <!-- BOTAO -->
+      <div class="field">
+        <div class="control">
+          <button class="button is-primary" type="submit">Enviar</button>
+        </div>
+      </div>
+    </form>
+  </section>
+
+
+</body>
+
+</html>
