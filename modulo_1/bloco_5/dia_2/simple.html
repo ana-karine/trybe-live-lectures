@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple test</title>
+</head>
+<body>
+  <header>
+    <h1>Olá</h1>
+  </header>
+  <section id="content">
+    <h2>Simple</h2>
+    <!--Conteúdo será adicionado de forma dinâmica aqui-->
+  </section>
+  <footer></footer>
+  <script>
+    let list = document.createElement('ul');
+    
+    for (let i = 0; i < 5; i += 1) {
+      let elementLi = document.createElement("li");
+      list.appendChild(elementLi);
+    }
+
+    document.querySelector("#content").appendChild(list);
+  </script>
+</body>
+</html>

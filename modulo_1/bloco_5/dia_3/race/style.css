@@ -1,0 +1,32 @@
+div {
+  display: inline-block;
+  background-image: url(https://www.nicepng.com/png/full/301-3010748_f1-car-icon-free-png-and-vector-car.png);
+  background-size: cover;
+  width: 200px;
+  height: 100px;
+}
+
+.title-heading {
+  color: red;
+  background-color: black;
+  font-family: monospace;
+  font-size: xxx-large;
+}
+
+.center {
+  text-align: center;
+  padding: 10px;
+}
+
+.car-section {
+  padding-top: 20px;
+  text-align: left;
+}
+
+.car1 {
+  background-color: #874f4f;
+}
+
+.car2 {
+  background-color: #4cb02e;
+}
