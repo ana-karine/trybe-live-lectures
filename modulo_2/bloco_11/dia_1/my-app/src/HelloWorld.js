@@ -2,7 +2,7 @@ import React from 'react';
 
 class HelloWorld extends React.Component {
   render() {
-    return (<span>HelloWorld de um componente. </span>)
+    return(<span>Hello, World! De um componente</span>);
   }
 }
 
