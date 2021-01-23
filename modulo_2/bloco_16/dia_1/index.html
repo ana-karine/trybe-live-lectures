@@ -12,10 +12,31 @@
       <button id="multi">Incrementa 10</button>
     </div>
     <script>
+
+      /*
+      this.state = {
+        dataReducer: [],
+        counterReducer: 0
+      }
+
+      combineReducers({
+        dataReducer,
+        counterReducer
+      })
+
+      function dataReducer(state = [], action) {
+
+      }
+      */
+
       const INCREMENT = "INCREMENT";
       const DECREMENT = "DECREMENT";
 
       function counterReducer(state = 0, action) {
+        // reducer -> recebe o state de toda minha app
+        // action -> o que deve ser atualizado e qual ação executada
+        console.log('Antes de alterar o state', state);
+        console.log(action);
         switch (action.type) {
           case INCREMENT:
             return state + action.value;
@@ -26,18 +47,23 @@
         }
       }
 
+      // reducer (counterReducer) passado para store como callback
       const store = Redux.createStore(counterReducer);
 
-      document.getElementById("increment").addEventListener("click", () => {
-        store.dispatch({ type: INCREMENT, value: 1 });
-      });
-      document.getElementById("decrement").addEventListener("click", () => {
-        store.dispatch({ type: DECREMENT, value: 1 });
-      });
+      document.getElementById("increment")
+        .addEventListener("click", () => {
+          store.dispatch({ type: INCREMENT, value: 1 });
+        });
 
-      document.getElementById("multi").addEventListener("click", () => {
-        store.dispatch({ type: INCREMENT, value: 10 });
-      });
+      document.getElementById("decrement")
+        .addEventListener("click", () => {
+          store.dispatch({ type: DECREMENT, value: 1 });
+        });
+
+      document.getElementById("multi")
+        .addEventListener("click", () => {
+          store.dispatch({ type: INCREMENT, value: 10 });
+        });
 
       store.subscribe(
         () =>
