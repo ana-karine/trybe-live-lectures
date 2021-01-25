@@ -1,7 +1,9 @@
 export function selectMovie(category, movie) {
   return {
     type: 'SELECT_MOVIE',
-    category,
-    movie
+    category, // category: category
+    movie // movie: movie
   }
 }
+
+// payload = dados que o action quer enviar para o store

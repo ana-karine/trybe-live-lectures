@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 class Player extends React.Component {
   render() {
     const { category, movie } = this.props;
+
     return (
       <div>
         <h1>Categoria: {category.name}</h1>
