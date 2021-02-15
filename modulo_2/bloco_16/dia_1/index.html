@@ -9,68 +9,83 @@
       Clicked: <span id="value">0</span> times
       <button id="increment">+</button>
       <button id="decrement">-</button>
-      <button id="multi">Incrementa 10</button>
+      <button id="increment-10">Incrementa 10</button>
     </div>
+
     <script>
-
-      /*
-      this.state = {
-        dataReducer: [],
-        counterReducer: 0
-      }
-
-      combineReducers({
-        dataReducer,
-        counterReducer
-      })
-
-      function dataReducer(state = [], action) {
-
-      }
-      */
-
+      // Padrão da action
+      // const action = {
+      //   type: 'MULTIPLY',
+      //   payload: {
+      //     amount: 1,
+      //   }
+      // }
       const INCREMENT = "INCREMENT";
       const DECREMENT = "DECREMENT";
 
-      function counterReducer(state = 0, action) {
-        // reducer -> recebe o state de toda minha app
-        // action -> o que deve ser atualizado e qual ação executada
-        console.log('Antes de alterar o state', state);
-        console.log(action);
+      // Criação do reducer
+      function counterReducer(state = { clicks: 0, likes: 0 }, action) {
+        // console.log('Antes de alterar o state', state);
+        // console.log(action);
         switch (action.type) {
           case INCREMENT:
-            return state + action.value;
+            return {
+              ...state,
+              clicks: state.clicks + action.payload.amount
+            };
           case DECREMENT:
-            return state - action.value;
+            return {
+              ...state,
+              clicks: state.clicks - action.payload.amount
+            };
           default:
             return state;
         }
       }
 
-      // reducer (counterReducer) passado para store como callback
-      const store = Redux.createStore(counterReducer);
-
-      document.getElementById("increment")
-        .addEventListener("click", () => {
-          store.dispatch({ type: INCREMENT, value: 1 });
-        });
-
-      document.getElementById("decrement")
-        .addEventListener("click", () => {
-          store.dispatch({ type: DECREMENT, value: 1 });
-        });
-
-      document.getElementById("multi")
-        .addEventListener("click", () => {
-          store.dispatch({ type: INCREMENT, value: 10 });
-        });
-
-      store.subscribe(
-        () =>
-          (document.getElementById(
-            "value"
-          ).innerHTML = store.getState().toString())
+      // Configuração da store
+      const store = Redux.createStore(
+        counterReducer,
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
       );
+
+      // Adicionar o disparo das actions no click dos botões
+      const buttonIncrement = document.getElementById("increment");
+      buttonIncrement.addEventListener("click", () => {
+        store.dispatch({
+          type: INCREMENT,
+          payload: {
+            amount: 1,
+          }
+        });
+      });
+
+      const buttonDecrement = document.getElementById("decrement");
+      buttonDecrement.addEventListener("click", () => {
+        store.dispatch({
+          type: DECREMENT,
+          payload: {
+            amount: 1,
+          }
+        });
+      });
+
+      const buttonIncrement10 = document.getElementById("increment-10");
+      buttonIncrement10.addEventListener("click", () => {
+        store.dispatch({
+          type: INCREMENT,
+          payload: {
+            amount: 10,
+          }
+        });
+      });
+
+      // Ler o dado do store global
+      store.subscribe(() => {
+        const valueSpan = document.getElementById("value");
+        valueSpan.innerHTML = store.getState().clicks;
+      });
+
     </script>
   </body>
 </html>
