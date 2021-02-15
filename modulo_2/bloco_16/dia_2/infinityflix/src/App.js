@@ -1,14 +1,16 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import Sidebar from './components/Sidebar'
-import Player from './components/Player';
-// import categories from './data';
 import store from './store';
+import Header from './components/Header';
+import Player from './components/Player';
+import Sidebar from './components/Sidebar';
+import './index.css';
+// import categories from './data';
 
 
 class App extends React.Component {
-  // constructor(props) {
-  //   super(props)
+  // constructor() {
+  //   super()
   //   this.state = {
   //     categories: [...categories]
   //   }
@@ -17,12 +19,13 @@ class App extends React.Component {
   render() {
     /* const { categories } = this.state */
     return (
-      <div className="App">
-        <Provider store={store}>
+      <Provider store={ store }>
+        <Header />
+        <main className="main">
           <Player />
           <Sidebar />
-        </Provider>
-      </div>
+        </main>
+      </Provider>
     );
   }
 };

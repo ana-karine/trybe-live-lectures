@@ -7,12 +7,13 @@ export default combineReducers({
   // otherReducer
 });
 
-// State:
+
+// state com mais de um reducer:
 // {
 //   movieReducer: {
-//     selectedCategory: categories[0],
-//     selectedMovie: categories[0].movies[0],
-//     categories: [...categories]
+//     selectedCategory: {},
+//     selectedMovie: {},
+//     categories: [...categoriesData],
 //   },
 //   otherReducer: {
 //     other: ''
