@@ -3,43 +3,44 @@ import './App.css';
 import data from './data.js';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
+
     this.state = {
-      filter: '',
-      number: 10
+      inputTextValue: '',
     }
+
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  changeNumber = () => {
-    this.setState((state) => ({number: state.number + 100}))
-  }
-
-  setFilterValue = event => {
-    console.log(event.target.value);
+  handleChange = event => {
+    // console.log(event.target.value);
     this.setState({
-      filter: event.target.value
+      inputTextValue: event.target.value,
     })
   };
   
   render() {
-
+    const { inputTextValue } = this.state;
     return (
-      <div className="App">
-        <div>
-          <input onChange={this.setFilterValue} type="text" />
-        </div>
-        {data
-          .filter(element => element.color.includes(this.state.filter))
-          .map(({color, value}) => {
-        return(
-          <li key={value}>
-            {color} coded as {value}
-          </li>)
-        })}
-        <p>{this.state.number}</p>
-        <button onClick={this.changeNumber}>clique aqui</button>
-      </div>
+      <main>
+        <input onChange={ this.handleChange } type="text" />
+        <ul>
+          {
+            data
+              .filter((element) => element.color.includes(inputTextValue))
+              .map((element) => 
+                <li key={ element.value }>
+                  <div
+                    style={{ backgroundColor: element.value }}
+                    className="color-square"
+                  />
+                  { ` ` + element.color }
+                </li>
+              )
+          }
+        </ul>
+      </main>
     );
   }
 }
